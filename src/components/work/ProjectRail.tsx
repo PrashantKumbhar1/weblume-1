@@ -1,25 +1,22 @@
 import { motion, useAnimationFrame } from "framer-motion";
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 
 interface Project {
+  description: ReactNode;
   title: string;
   category: string;
   thumbnail: string;
+  url: string; 
 }
 
 interface Props {
   projects: Project[];
-  onSelect: (project: Project) => void;
 }
 
-export const ProjectRail = ({ projects, onSelect }: Props) => {
+export const ProjectRail = ({ projects }: Props) => {
   const railRef = useRef<HTMLDivElement>(null);
 
-  /**
-   * SPEED TUNING
-   * Increase for faster auto-scroll
-   * Mobile feels better slightly faster
-   */
+  // Speed tuning (mobile friendly)
   const SPEED = 0.6;
 
   useAnimationFrame(() => {
@@ -28,10 +25,6 @@ export const ProjectRail = ({ projects, onSelect }: Props) => {
     const rail = railRef.current;
     rail.scrollLeft += SPEED;
 
-    /**
-     * TRUE INFINITE LOOP
-     * When first half is gone, jump seamlessly
-     */
     if (rail.scrollLeft >= rail.scrollWidth / 2) {
       rail.scrollLeft = 0;
     }
@@ -52,9 +45,11 @@ export const ProjectRail = ({ projects, onSelect }: Props) => {
         "
       >
         {looped.map((project, index) => (
-          <motion.div
+          <motion.a
             key={index}
-            onClick={() => onSelect(project)}
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{
               rotateY: 6,
               rotateX: -4,
@@ -86,15 +81,24 @@ export const ProjectRail = ({ projects, onSelect }: Props) => {
             </div>
 
             {/* TEXT */}
-            <div className="p-5">
-              <p className="text-xs uppercase tracking-wide text-emerald-400 mb-1">
+            <div className="p-5 space-y-1">
+              <p className="text-xs uppercase tracking-wide text-emerald-400">
                 {project.category}
               </p>
+
               <h3 className="text-lg font-semibold leading-snug">
                 {project.title}
               </h3>
+
+              <p className="
+                text-sm text-white/70
+                leading-relaxed
+                line-clamp-3
+              ">
+                {project.description}
+              </p>
             </div>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
     </div>

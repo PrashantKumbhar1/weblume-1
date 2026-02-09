@@ -1,38 +1,77 @@
 // src/data/projects.ts
 
+export interface Project {
+  title: string;
+  category: string;
+  description: string;
+  thumbnail: string;
+  url: string;
+}
+
 export const projects = [
   {
-    id: "Portfolio",
     title: "Prashant Portfolio",
     category: "Portfolio",
     description:
       "A personal portfolio website showcasing my skills, projects, and professional journey.",
-    video: "/videos/Portfolio.mp4",
     thumbnail: "/work/Portfolio.png",
+    url: "https://pportfolio-1.netlify.app/"
   },
   {
-    id: "photography",
-    title: "Sarah Mitchell Photography",
-    category: "Portfolio",
-    video: "/videos/photo.mp4",
+    title: "Kinara",
+    category: "Management System",
     description:
-      "An elegant photography portfolio built to showcase visual storytelling. Clean galleries, immersive layouts, and subtle motion enhance the emotional impact of each photograph.",
+      "Kinara is a modern hotel room booking platform designed for effortless stays. Discover comfortable accommodations, seamless reservations, and a smooth user experience—all in one place",
+    thumbnail: "/work/Kinara.png",
+    url: "https://kinara-inky.vercel.app/"
   },
   {
-    id: "Civiclens",
     title: "Civiclens AI",
     category: "Management System",
     thumbnail: "/work/CivicLensAI.png",
-    video: "/videos/CivicLens AI.mp4",
+    url: "https://civiclens-ai1.netlify.app/",
     description:
-      "CivicLens-AI is a smart civic platform that lets citizens report city issues using images and location data. It uses AI to analyze complaints, detect severity and duplicates, and help authorities prioritize and resolve issues faster through dashboards, maps, and analytics.",
+      "CivicLens-AI is an AI-powered civic platform that helps citizens report issues and enables authorities to prioritize and resolve them faster",
   },
   {
-    id: "tech",
-    title: "TechStart Solutions",
+    title: "ATSCORE : Resume Matching System",
     category: "Business",
-    video: "/videos/tech.mp4",
+    thumbnail: "/work/ATScore.png",
+    url: "https://atscore-resume-matching-system.netlify.app/",
     description:
-      "A modern corporate website designed to establish trust and authority. Clear service sections, strong CTAs, and a scalable layout built for long-term growth.",
+      "ATSCORE is an AI-powered resume matching system that evaluates ATS-style compatibility using NLP-driven semantic and skill-based analysis.",
   },
+  {
+    title: "Harshal Portfolio",
+    category: "Portfolio",
+    thumbnail: "/work/HarshalPortfolio.png",
+    url: "https://harshal-patil-portfolio-xi.vercel.app/",
+    description:
+      "Harshal's personal portfolio showcasing his projects and skills.",
+  },
+  {
+    title: "PDFUTILS : AI Document Processing",
+    category: "Web App",
+    thumbnail: "/work/PDFUtils.png",
+    url: "https://mypdfutils.vercel.app/",
+    description:
+      "PDFUTILS is an AI-driven document processing platform that extracts, cleans, and structures text for scalable machine learning workflows",
+  },
+  {
+    title: "Allergy Sentinel",
+    category: "Business Web App",
+    thumbnail: "/work/AllergySentinel.png",
+    url: "https://allergy-sentinel.vercel.app/",
+    description:
+      "Allergy Sentinel is an AI-powered food label analysis platform that detects allergens and potential carcinogenic ingredients from packaged food labels using OCR and intelligent text analysis.",
+  },
+  {
+    title: "Saurabh Portfolio",
+    category: "Portfolio",
+    thumbnail: "/work/SaurabhPortfolio.png",
+    url: "https://saurabhhumane.vercel.app/",
+    description:
+      "Saurabh's personal portfolio showcasing his projects and skills & Professional journey",
+  },
+
 ];

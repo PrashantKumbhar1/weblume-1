@@ -2,15 +2,19 @@
 
 import { motion } from "framer-motion";
 
+interface Project {
+  category: string;
+  title: string;
+}
+
 interface Props {
-  project: any;
+  project: Project;
   onClick: () => void;
 }
 
 export const ProjectCard = ({ project, onClick }: Props) => {
   return (
     <motion.div
-      layoutId={`project-${project.id}`}
       whileHover={{
         scale: 1.06,
         rotateY: 6,

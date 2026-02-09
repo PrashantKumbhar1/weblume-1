@@ -77,18 +77,6 @@ export const ProjectModal = ({ project, onClose }: Props) => {
               <X />
             </button>
 
-            {/* VIDEO */}
-            <div className="rounded-xl overflow-hidden border border-white/10">
-              <video
-                ref={videoRef}
-                src={project.video}
-                muted
-                controls
-                playsInline
-                className="w-full max-h-[50vh] object-cover"
-              />
-            </div>
-
             {/* CONTENT */}
             <div className="mt-6">
               <h3 className="text-xl md:text-2xl font-semibold mb-3">
