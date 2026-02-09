@@ -37,7 +37,7 @@ export const projects = [
     title: "ATSCORE : Resume Matching System",
     category: "Business",
     thumbnail: "/work/ATScore.png",
-    url: "https://atscore-resume-matching-system.netlify.app/",
+    url: "https://atscore.vercel.app/",
     description:
       "ATSCORE is an AI-powered resume matching system that evaluates ATS-style compatibility using NLP-driven semantic and skill-based analysis.",
   },
