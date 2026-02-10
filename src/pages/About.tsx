@@ -79,21 +79,25 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Weblume was born from a simple observation: too many talented
-                  professionals and passionate small business owners were being
-                  held back by the lack of an online presence.
+                  Weblume was founded with a clear purpose: to help ambitious individuals, startups, and growing businesses establish a strong and credible presence on the web.
                 </p>
+
                 <p>
-                  The name "Weblume" combines "web" with "bloom" (from the German
-                  "Blume" meaning flower) — representing our belief that every
-                  business has the potential to flourish online with the right
-                  nurturing.
+                  We observed a common challenge — great ideas and capable teams often struggle to reach their audience due to poorly designed, slow, or outdated websites. 
                 </p>
+
                 <p>
-                  We specialize in creating beautiful, functional websites at
-                  prices that make sense for growing businesses. No enterprise
-                  budgets required — just quality work that helps you bloom.
+                  Weblume exists to bridge that gap by delivering modern, performance-driven digital experiences that look refined and work flawlessly.
                 </p>
+
+                <p>
+                  We specialize in crafting clean, functional, and conversion-focused websites built with modern technologies and thoughtful design.
+                </p>
+
+                <p>
+                  Our approach balances quality, speed, and affordability — enabling businesses to scale confidently without unnecessary complexity or enterprise-level costs.
+                </p>
+                
               </div>
             </motion.div>
 
