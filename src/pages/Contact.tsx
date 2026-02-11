@@ -16,7 +16,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from "@emailjs/browser";
+import { sendForm } from "@emailjs/browser";
+
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -28,7 +29,7 @@ const Contact = () => {
     const form = e.currentTarget;
 
     try {
-      await emailjs.sendForm(
+      await sendForm(
         "service_5jdl0qe",
         "template_gslyubr",
         form,
