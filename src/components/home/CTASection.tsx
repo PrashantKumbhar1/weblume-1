@@ -32,12 +32,6 @@ export const CTASection = () => {
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition" />
               </Button>
             </Link>
-
-            <Link to="/team">
-              <Button variant="outline" size="xl">
-                Meet the Team
-              </Button>
-            </Link>
           </div>
 
           {/* Trust indicators */}
