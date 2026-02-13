@@ -7,7 +7,7 @@ const footerLinks = {
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
     { name: "Work", path: "/work" },
-    { name: "Team", path: "/team" },
+    { name: "Connect", path: "/contact" },
   ],
   company: [
     { name: "About Us", path: "/about" },
@@ -70,14 +70,14 @@ export const Footer = () => {
                 className="flex items-center gap-2 hover:text-primary transition-colors"
               >
                 <Mail size={16} />
-                hello@weblume.com
+                weblumeofficial@gmail.com
               </a>
               <a
                 href="tel:+1234567890"
                 className="flex items-center gap-2 hover:text-primary transition-colors"
               >
                 <Phone size={16} />
-                +1 (234) 567-890
+                +91 7208317436 / +91 8779663354
               </a>
               <span className="flex items-center gap-2">
                 <MapPin size={16} />
@@ -145,8 +145,8 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm">
+        <div className="mt-16 pt-8 border-t border-border/50 flex justify-center items-center">
+          <p className="text-muted-foreground text-sm text-center">
             © {new Date().getFullYear()} Weblume. All rights reserved.
           </p>
           <motion.p
@@ -155,9 +155,9 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="text-muted-foreground text-sm flex items-center gap-1"
           >
-            Crafted with
-            <span className="text-primary animate-glow-pulse">♥</span>
-            for growing businesses
+            
+            <span className="text-primary animate-glow-pulse"></span>
+            
           </motion.p>
         </div>
       </div>
