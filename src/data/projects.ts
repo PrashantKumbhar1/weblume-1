@@ -15,7 +15,7 @@ export const projects = [
     description:
       "A personal portfolio website showcasing my skills, projects, and professional journey.",
     thumbnail: "/work/Portfolio.png",
-    url: "https://pportfolio-1.netlify.app/"
+    url: "https://prashantkumbhar.netlify.app/"
   },
   {
     title: "Kinara",
