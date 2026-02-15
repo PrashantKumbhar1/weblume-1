@@ -20,8 +20,7 @@ const footerLinks = {
 const socialLinks = [
   { name: "Twitter", url: "#" },
   { name: "LinkedIn", url: "#" },
-  { name: "Instagram", url: "#" },
-  { name: "Dribbble", url: "#" },
+  { name: "Instagram", url: "https://www.instagram.com/weblume2026?utm_source=qr&igsh=Z2d6dHJ3M2gzcjE3" },
 ];
 
 export const Footer = () => {
@@ -61,8 +60,7 @@ export const Footer = () => {
               <span className="font-display text-xl font-bold">Weblume</span>
             </Link>
             <p className="text-muted-foreground text-sm mb-6 max-w-xs">
-              Helping professionals and small businesses bloom online with
-              beautiful, affordable websites.
+              Helping professionals and growing businesses scale with powerful websites and Android applications.
             </p>
             <div className="flex flex-col gap-3 text-sm text-muted-foreground">
               <a

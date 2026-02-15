@@ -5,6 +5,8 @@ import {
   Palette,
   Rocket,
   Settings,
+  Smartphone,
+  Layers,
   ArrowRight,
   Check,
 } from "lucide-react";
@@ -18,55 +20,83 @@ const services = [
     title: "Portfolio Website",
     bestFor: "Individuals & Freelancers",
     description:
-      "Perfect for individuals, freelancers, and creators who want to showcase their work and personal brand online.",
+      "Premium personal websites designed to showcase your work, expertise, and unique identity with clarity and impact.",
     features: [
-      "Clean and modern design",
-      "Showcase your work & skills",
-      "Simple contact options",
-      "Mobile-friendly layout",
-      "Personal branding focus",
+      "Modern & elegant UI design",
+      "Project & skill showcase",
+      "Integrated contact options",
+      "Fully responsive layout",
+      "Strong personal branding",
     ],
   },
   {
     icon: Globe,
     title: "Business Website",
-    bestFor: "Small Businesses",
+    bestFor: "Startups & Small Businesses",
     description:
-      "Professional websites designed to build trust, attract customers, and grow your business online.",
+      "Professional websites built to establish credibility, attract customers, and convert visitors into real business growth.",
     features: [
-      "Professional brand presence",
-      "Clear services & information",
-      "Customer inquiry setup",
+      "Strong digital brand presence",
+      "Service & product presentation",
+      "Lead & inquiry integration",
       "Optimized for all devices",
-      "Conversion-focused layout",
+      "Conversion-focused structure",
     ],
   },
   {
     icon: Rocket,
     title: "Website Revamp",
-    bestFor: "Existing Websites",
+    bestFor: "Existing Businesses",
     description:
-      "Redesign and upgrade your existing website to make it faster, modern, and more effective.",
+      "Transform outdated websites into fast, modern, high-performing digital experiences.",
     features: [
-      "Modern refreshed UI",
-      "Improved user experience",
-      "Better speed & performance",
-      "Updated content structure",
-      "Mobile & browser ready",
+      "Complete UI redesign",
+      "Improved user journey",
+      "Performance optimization",
+      "Modern content structure",
+      "Mobile & browser optimized",
     ],
   },
   {
     icon: Settings,
     title: "Management System",
-    bestFor: "Gyms, Hotels, Libraries",
+    bestFor: "Gyms, Hotels, Libraries & More",
     description:
-      "Custom-built systems to manage daily operations efficiently and reduce manual work.",
+      "Custom-built systems to streamline operations, automate tasks, and improve organizational efficiency.",
     features: [
-      "Easy data management",
       "Admin dashboard access",
+      "Secure data management",
       "Role-based permissions",
-      "Automated workflows",
-      "Scalable for growth",
+      "Workflow automation",
+      "Scalable architecture",
+    ],
+  },
+  {
+    icon: Smartphone,
+    title: "Android App Development",
+    bestFor: "Businesses & Startups",
+    description:
+      "Custom Android applications engineered for performance, intuitive user experience, and long-term scalability.",
+    features: [
+      "Custom UI/UX design",
+      "High-performance architecture",
+      "API & backend integration",
+      "Play Store deployment support",
+      "Ongoing maintenance & updates",
+    ],
+  },
+  {
+    icon: Layers,
+    title: "Web + Android App Solution",
+    bestFor: "Growing Brands",
+    description:
+      "A unified digital ecosystem combining powerful websites and mobile apps for seamless brand expansion.",
+    features: [
+      "Website + Mobile app sync",
+      "Shared backend infrastructure",
+      "Consistent branding",
+      "Real-time data integration",
+      "Future-ready scalable system",
     ],
   },
 ];
@@ -89,7 +119,7 @@ const Services = () => {
             animate={{ opacity: 1, y: 0 }}
             className="inline-block text-sm uppercase tracking-wider text-emerald-400 mb-4"
           >
-            Our Services 🌱
+            Our Expertise 🚀
           </motion.span>
 
           <motion.h1
@@ -97,19 +127,19 @@ const Services = () => {
             animate={{ opacity: 1, y: 0 }}
             className="font-display text-5xl md:text-7xl font-bold mb-6"
           >
-            Everything You Need to{" "}
-            <span className="gradient-animated">Bloom Online</span>
+            Digital Products That{" "}
+            <span className="gradient-animated">Drive Real Growth</span>
           </motion.h1>
 
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Strategy, design, and development — perfectly aligned to grow your
-            digital presence.
+            From high-converting websites to powerful Android applications —
+            we design and build digital experiences that scale with your vision.
           </p>
         </section>
 
         {/* SERVICES GRID */}
         <section className="container mx-auto px-6">
-          <div className="grid sm:grid-cols-2 gap-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
             {services.map((service, index) => (
               <motion.div
@@ -117,24 +147,25 @@ const Services = () => {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -12, scale: 1.02 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="
                   relative rounded-3xl p-8
                   bg-[#020617]/90
                   border border-white/10
-                  hover:border-emerald-400/40
-                  transition-all
+                  hover:border-emerald-400/50
+                  transition-all duration-500
                   group
+                  overflow-hidden
                 "
               >
-                {/* Hover glow */}
+                {/* Animated glow */}
                 <div className="
                   absolute inset-0 rounded-3xl
                   opacity-0 group-hover:opacity-100
-                  transition duration-500
+                  transition duration-700
                   bg-gradient-to-br from-emerald-400/10 via-cyan-400/10 to-blue-400/10
-                  blur-xl
+                  blur-2xl
                 " />
 
                 <div className="relative z-10">
@@ -143,8 +174,8 @@ const Services = () => {
                     mb-6 w-14 h-14 rounded-xl
                     bg-gradient-to-br from-emerald-400/20 to-cyan-400/20
                     flex items-center justify-center
-                    group-hover:scale-110
-                    transition-transform
+                    group-hover:rotate-6 group-hover:scale-110
+                    transition-all duration-500
                   ">
                     <service.icon className="w-7 h-7 text-emerald-400" />
                   </div>
@@ -154,7 +185,7 @@ const Services = () => {
                     {service.title}
                   </h3>
 
-                  {/* Best for badge */}
+                  {/* Best For Badge */}
                   <span className="
                     inline-block mb-4 px-3 py-1
                     text-xs font-medium rounded-full
@@ -164,7 +195,7 @@ const Services = () => {
                   </span>
 
                   {/* Description */}
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -176,7 +207,7 @@ const Services = () => {
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.06 }}
+                        transition={{ delay: i * 0.05 }}
                         className="flex items-center gap-2 text-sm text-muted-foreground"
                       >
                         <Check className="w-4 h-4 text-emerald-400" />
@@ -205,11 +236,11 @@ const Services = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Let’s Build Something That{" "}
-              <span className="gradient-animated">Grows 🚀</span>
+              <span className="gradient-animated">Scales 🚀</span>
             </h2>
 
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-              Clear strategy. Beautiful design. Powerful execution.
+              Strategy. Design. Development. Web & Mobile — all under one roof.
             </p>
 
             <Link to="/contact">

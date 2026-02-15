@@ -6,7 +6,7 @@ const features = [
     icon: DollarSign,
     title: "Affordable Excellence",
     description:
-      "Premium quality websites at prices that won't break the bank. We believe great design should be accessible to everyone.",
+      "Premium quality web & android apps at prices that won't break the bank. We believe great design should be accessible to everyone.",
   },
   {
     icon: Zap,
@@ -24,7 +24,7 @@ const features = [
     icon: Shield,
     title: "Built to Last",
     description:
-      "Modern, secure code that stands the test of time. Your website will be fast, reliable, and future-proof.",
+      "Modern, secure code that stands the test of time. Your website as well as App will be fast, reliable, and future-proof.",
   },
 ];
 

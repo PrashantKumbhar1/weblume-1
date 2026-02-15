@@ -18,7 +18,6 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { sendForm } from "@emailjs/browser";
 
-
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [service, setService] = useState("");
@@ -57,7 +56,6 @@ const Contact = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
       className="min-h-screen bg-background"
     >
       <Navbar />
@@ -69,7 +67,6 @@ const Contact = () => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
             className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
           >
             Let’s Start Your{" "}
@@ -87,24 +84,32 @@ const Contact = () => {
 
             {/* FORM */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="p-8 rounded-2xl card-glow glow-border"
+              className="relative p-8 rounded-2xl bg-[#020617]/90 border border-white/10 backdrop-blur-xl overflow-hidden"
             >
+              {/* premium glow */}
+              <div className="absolute -top-20 -left-20 w-72 h-72 bg-emerald-500/10 blur-[120px]" />
+              <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-cyan-500/10 blur-[120px]" />
+
               {isSubmitted ? (
-                <div className="text-center py-12">
-                  <CheckCircle className="w-10 h-10 mx-auto text-primary mb-4" />
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="text-center py-12"
+                >
+                  <CheckCircle className="w-12 h-12 mx-auto text-emerald-400 mb-4" />
                   <h3 className="text-2xl font-bold mb-2">
-                    Message Sent!
+                    Message Sent Successfully 🚀
                   </h3>
                   <p className="text-muted-foreground">
-                    Thank you for reaching out.
+                    We’ll contact you within 24 hours.
                   </p>
-                </div>
+                </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
 
                   {/* Name */}
                   <div className="space-y-2">
@@ -113,7 +118,7 @@ const Contact = () => {
                       name="from_name"
                       required
                       placeholder="Your full name"
-                      className="bg-white text-gray-900"
+                      className="bg-white text-gray-900 focus:ring-2 focus:ring-emerald-400 transition"
                     />
                   </div>
 
@@ -125,7 +130,7 @@ const Contact = () => {
                       type="email"
                       required
                       placeholder="you@example.com"
-                      className="bg-white text-gray-900"
+                      className="bg-white text-gray-900 focus:ring-2 focus:ring-emerald-400 transition"
                     />
                   </div>
 
@@ -137,18 +142,23 @@ const Contact = () => {
                       required
                       value={service}
                       onChange={(e) => setService(e.target.value)}
-                      className="w-full h-10 px-3 rounded-lg bg-white text-gray-900 border"
+                      className="w-full h-10 px-3 rounded-lg bg-white text-gray-900 border focus:ring-2 focus:ring-emerald-400 transition"
                     >
                       <option value="">Select a service</option>
                       <option value="Portfolio Website">Portfolio Website</option>
                       <option value="Business Website">Business Website</option>
                       <option value="Website Revamp">Website Revamp</option>
                       <option value="Management System">Management System</option>
+
+                      {/* NEW SERVICES */}
+                      <option value="Android App Development">Android App Development</option>
+                      <option value="UI/UX Design">UI/UX Design</option>
+
                       <option value="Other">Other</option>
                     </select>
                   </div>
 
-                  {/* Conditional Field */}
+                  {/* Conditional */}
                   {service === "Other" && (
                     <div className="space-y-2">
                       <Label>What do you need exactly? *</Label>
@@ -156,64 +166,56 @@ const Contact = () => {
                         name="custom_requirement"
                         required
                         placeholder="Briefly describe your requirement"
-                        className="bg-white text-gray-900"
+                        className="bg-white text-gray-900 focus:ring-2 focus:ring-emerald-400"
                       />
                     </div>
                   )}
 
-                  <Button type="submit" variant="hero" className="w-full group">
-                    Send Message
-                    <Send className="ml-2 group-hover:translate-x-1 transition" />
-                  </Button>
+                  {/* BUTTON */}
+                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                    <Button type="submit" className="w-full text-lg py-6 group">
+                      Send Message
+                      <Send className="ml-2 group-hover:translate-x-1 transition" />
+                    </Button>
+                  </motion.div>
                 </form>
               )}
             </motion.div>
 
             {/* INFO */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="space-y-10"
             >
-              {/* Heading Added */}
               <div>
                 <h2 className="font-display text-2xl font-bold mb-2">
                   Get in Touch
                 </h2>
                 <p className="text-muted-foreground">
-                  Reach out through any of the channels below.
+                  Reach out through any channel below.
                 </p>
               </div>
 
               <div className="space-y-6">
 
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-4 items-center hover:text-emerald-400 transition">
                   <Mail className="text-primary" />
-                  <a
-                    href="mailto:weblumeofficial@gmail.com"
-                    className="hover:text-primary transition"
-                  >
+                  <a href="mailto:weblumeofficial@gmail.com">
                     weblumeofficial@gmail.com
                   </a>
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 hover:text-emerald-400 transition">
                     <Phone className="text-primary" />
-                    <a
-                      href="tel:+91 7208317436"
-                      className="hover:text-primary transition"
-                    >
+                    <a href="tel:+917208317436">
                       +91 7208317436
                     </a>
                   </div>
-                  <div className="flex items-center gap-4 ml-8">
-                    <a
-                      href="tel:+91 8779663354"
-                      className="hover:text-primary transition"
-                    >
+                  <div className="flex items-center gap-4 ml-8 hover:text-emerald-400 transition">
+                    <a href="tel:+918779663354">
                       / +91 8779663354
                     </a>
                   </div>
@@ -230,16 +232,42 @@ const Contact = () => {
                 <h3 className="font-display font-semibold mb-4">
                   Connect with us
                 </h3>
+
                 <div className="flex gap-6">
-                  <a href="#" className="hover:text-primary transition">
+
+                  {/* Instagram */}
+                  <motion.a
+                    whileHover={{ y: -4, scale: 1.15 }}
+                    href="https://www.instagram.com/weblume2026?utm_source=qr&igsh=Z2d6dHJ3M2gzcjE3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-emerald-400 transition"
+                  >
                     <Instagram />
-                  </a>
-                  <a href="#" className="hover:text-primary transition">
+                  </motion.a>
+
+                  {/* LinkedIn */}
+                  <motion.a
+                    whileHover={{ y: -4, scale: 1.15 }}
+                    href="https://linkedin.com/in/YOUR_ID"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-emerald-400 transition"
+                  >
                     <Linkedin />
-                  </a>
-                  <a href="#" className="hover:text-primary transition">
+                  </motion.a>
+
+                  {/* Twitter */}
+                  <motion.a
+                    whileHover={{ y: -4, scale: 1.15 }}
+                    href="https://twitter.com/YOUR_ID"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-emerald-400 transition"
+                  >
                     <Twitter />
-                  </a>
+                  </motion.a>
+
                 </div>
               </div>
 
