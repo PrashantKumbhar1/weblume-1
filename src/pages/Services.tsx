@@ -236,11 +236,11 @@ const Services = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Let’s Build Something That{" "}
-              <span className="gradient-animated">Scales 🚀</span>
+              <span className="gradient-animated">Scales</span>
             </h2>
 
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-              Strategy. Design. Development. Web & Mobile — all under one roof.
+              Strategy , Design & Development — all under one roof.
             </p>
 
             <Link to="/contact">

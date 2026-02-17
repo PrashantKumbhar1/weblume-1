@@ -41,25 +41,21 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
 
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="
-            inline-flex items-center gap-2 
-            px-5 py-2 mb-6
-            rounded-full
-            bg-emerald-500/10
-            border border-emerald-400/30
-            backdrop-blur-md
-          "
-        >
-          <Sparkles className="text-emerald-400" size={16} />
-          <span className="text-sm text-emerald-300 font-medium">
-            Crafted for attention. Designed for growth 💻
-          </span>
-        </motion.div>
+        {/* Premium Micro Intro */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-col items-center mb-8"
+          >
+            <div className="w-12 h-px bg-gradient-to-r from-transparent via-emerald-400/70 to-transparent mb-4" />
+
+            <p className="uppercase tracking-[0.25em] text-xs text-emerald-300/80 font-medium">
+              Crafted for attention. Designed for growth.
+            </p>
+
+            <div className="w-12 h-px bg-gradient-to-r from-transparent via-emerald-400/70 to-transparent mt-4" />
+       </motion.div>
 
         {/* Headline */}
         <motion.h1

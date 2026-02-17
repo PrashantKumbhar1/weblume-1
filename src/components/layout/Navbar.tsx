@@ -1,9 +1,11 @@
+
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.svg"; // SVG LOGO
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -20,7 +22,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -33,72 +35,55 @@ export const Navbar = () => {
   return (
     <>
       <motion.header
-        initial={{ y: -100 }}
+        initial={{ y: -80 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.6 }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          isScrolled ? "glass py-3" : "py-6"
+          isScrolled
+            ? "backdrop-blur-xl bg-black/40 border-b border-white/10 py-3"
+            : "py-5"
         )}
       >
         <nav className="container mx-auto flex items-center justify-between px-6">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <motion.div
-              className="relative w-10 h-10 flex items-center justify-center"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg group-hover:blur-xl transition-all" />
-              <svg
-                viewBox="0 0 40 40"
-                className="w-10 h-10 relative z-10"
-                fill="none"
-              >
-                <circle
-                  cx="20"
-                  cy="28"
-                  r="6"
-                  className="fill-primary"
-                />
-                <path
-                  d="M20 22V8"
-                  className="stroke-primary"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M14 14C14 14 17 11 20 8C23 11 26 14 26 14"
-                  className="stroke-primary"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </motion.div>
-            <span className="font-display text-2xl font-bold text-glow-sm">
+
+          {/* 🔥 LOGO SECTION */}
+          <Link to="/" className="flex items-center gap-3 group">
+
+            {/* Logo */}
+            <motion.img
+              src={logo}
+              alt="Weblume"
+              className="h-9 w-auto object-contain mix-blend-lighten"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            />
+
+            {/* Text */}
+            <span className="text-xl font-semibold tracking-wide text-white group-hover:text-emerald-400 transition">
               Weblume
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden lg:flex items-center gap-1">
+          {/* Desktop Nav */}
+          <ul className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) => (
               <li key={link.path}>
                 <Link
                   to={link.path}
                   className={cn(
-                    "relative px-4 py-2 font-display text-sm font-medium transition-colors duration-300",
+                    "relative px-4 py-2 text-sm font-medium transition-all duration-300",
                     location.pathname === link.path
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "text-emerald-400"
+                      : "text-white/70 hover:text-white"
                   )}
                 >
                   {link.name}
+
                   {location.pathname === link.path && (
                     <motion.div
-                      layoutId="activeNav"
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full shadow-glow"
+                      layoutId="navDot"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-emerald-400 rounded-full"
                     />
                   )}
                 </Link>
@@ -106,73 +91,58 @@ export const Navbar = () => {
             ))}
           </ul>
 
-          {/* CTA Button */}
+          {/* CTA */}
           <div className="hidden lg:block">
             <Link to="/contact">
-              <Button variant="glow" size="sm">
+              <Button
+                size="sm"
+                className="bg-emerald-500 hover:bg-emerald-600 text-white px-5 shadow-lg shadow-emerald-500/20"
+              >
                 Start Your Project
               </Button>
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile btn */}
           <button
-            className="lg:hidden p-2 text-foreground"
+            className="lg:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </nav>
       </motion.header>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 lg:hidden"
+            exit={{ opacity: 0, y: -30 }}
+            className="fixed inset-0 z-40 bg-black/90 backdrop-blur-xl lg:hidden"
           >
-            <div className="absolute inset-0 bg-background/70 backdrop-blur-lg" />
-            <nav className="relative pt-24 px-6">
-              <ul className="flex flex-col gap-4">
-                {navLinks.map((link, index) => (
-                  <motion.li
+            <div className="pt-28 px-6">
+              <ul className="flex flex-col gap-6 text-center">
+                {navLinks.map((link) => (
+                  <Link
                     key={link.path}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    to={link.path}
+                    className="text-2xl text-white/80 hover:text-emerald-400 transition"
                   >
-                    <Link
-                      to={link.path}
-                      className={cn(
-                        "block py-3 font-display text-2xl font-medium transition-colors",
-                        location.pathname === link.path
-                          ? "text-primary text-glow-sm"
-                          : "text-muted-foreground"
-                      )}
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.li>
+                    {link.name}
+                  </Link>
                 ))}
               </ul>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="mt-8"
-              >
-                <Link to="/contact" className="block">
-                  <Button variant="glow" className="w-full" size="lg">
+
+              <div className="mt-10 text-center">
+                <Link to="/contact">
+                  <Button className="bg-emerald-500 hover:bg-emerald-600 w-full">
                     Start Your Project
                   </Button>
                 </Link>
-              </motion.div>
-            </nav>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
